@@ -51,17 +51,17 @@ export class AppComponent {
       
   }
   validarcampos():boolean{
-    if(this.identification==""){
+    if(this.identification =="" || this.identification == null){
       alert("Debe ingresar un número de identificación");
       return false;
     }
 
-    if(this.name==""){
+    if(this.name=="" || this.name == null){
       alert("Debe ingresar un nombre");
       return false;
     }
 
-    if(this.lastname==""){
+    if(this.lastname=="" || this.lastname == null){
       alert("Debe ingresar los apellidos");
       return false;
     }
@@ -72,7 +72,7 @@ export class AppComponent {
       return false;
     }
 
-    if(this.phone==""){
+    if(this.phone=="" || this.phone == null){
       alert("Debe ingresar un número de telefono");
       return false;
     }
@@ -80,7 +80,7 @@ export class AppComponent {
     }
 
     modificarusuarios(){
-    this.validarcampos();
+    if(this.validarcampos()){
 
           this.usurioService.validarcedula(this.identification).subscribe((resp:any)=>{
           if(resp){
@@ -93,6 +93,7 @@ export class AppComponent {
             alert("El documento que desea modificar no existe");
           }
         })
+    }
   }
 
 }
