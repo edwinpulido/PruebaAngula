@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <div class="container">
+    <div class="form__top">
+      <h2>Registro <span>Usuarios</span></h2>
+    </div>
+    <form class="form__reg">
+      <input class="input" type="number" placeholder="Cedula" required autofocus [(ngModel)]="identification" name="identification">
+      <input class="input" type="text" placeholder="Nombres" required  [(ngModel)]="name" name="name">
+      <input class="input" type="text" placeholder="Apellidos" required  [(ngModel)]="lastname" name="lastname">
+      <input class="input" type="email" placeholder="Email" required [(ngModel)]="email" name="email">
+      <input class="input" type="number" placeholder="Telefono" required [(ngModel)]="phone" name="phone">
+      <div class="btn__form">
+        <input class="btn__submit" name="registrar" value="REGISTRAR" type="button" (click)="insertarusuarios()">
+        <input class="btn__edit" name="editar" value="EDITAR" type="button" (click)="modificarusuarios()">
+        <input class="btn__reset" name="limpiar" type="reset" value="LIMPIAR">
+      </div>
+    </form>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Cedula</th>
+          <th scope="col">Nombres</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Telefono</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of usuarios">
+          <td>
+            {{item.identification}}
+          </td>
+          <td>
+            {{item.name}}
+          </td>
+          <td>
+            {{item.lastname}}
+          </td>
+          <td>
+            {{item.email}}
+          </td>
+          <td>
+            {{item.phone}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
+ 
+  
+
+
+
+
+
+
+
